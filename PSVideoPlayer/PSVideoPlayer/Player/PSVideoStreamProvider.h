@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSVideoDecoder.h"
 
 typedef enum OpenState{
     OPEN_SUCCESS,
@@ -22,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
             parameters:(NSDictionary*) parameters error: (NSError **)error;
 
 - (void)run;
+
+- (VideoFrame*)getCorrectVideoFrame;
+
+- (void) audioCallbackFillData: (SInt16 *) outData
+                     numFrames: (UInt32) numFrames
+                   numChannels: (UInt32) numChannels;
 
 @end
 

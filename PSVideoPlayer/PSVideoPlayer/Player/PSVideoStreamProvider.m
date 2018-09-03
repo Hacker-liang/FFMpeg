@@ -32,6 +32,8 @@ NSString * const kMAX_BUFFERED_DURATION = @"Max_Buffered_Duration";
     CGFloat                                             _minBufferedDuration;
     CGFloat                                             _maxBufferedDuration;
     
+    CGFloat                                             _syncMaxTimeDiff;
+
     NSMutableArray*                                     _videoFrames;
     NSMutableArray*                                     _audioFrames;
     
@@ -47,6 +49,12 @@ NSString * const kMAX_BUFFERED_DURATION = @"Max_Buffered_Duration";
     pthread_t                                           videoDecoderThread;
     
     int                                                 _decodeVideoErrorState;
+    
+    /** 分别是当外界需要音频数据和视频数据的时候, 全局变量缓存数据 **/
+    NSData*                                             _currentAudioFrame;
+    NSUInteger                                          _currentAudioFramePos;
+    CGFloat                                             _audioPosition;
+    VideoFrame*                                         _currentVideoFrame;
 
 }
 
@@ -70,6 +78,75 @@ static void* decodeFirstBufferRunLoop(void* ptr)
     return NULL;
 }
 
+- (VideoFrame *)getCorrectVideoFrame
+{
+    VideoFrame *frame = NULL;
+    @synchronized (_videoFrames) {
+        while (_videoFrames.count) {
+            frame = _videoFrames[0];
+            const CGFloat delta = _audioPosition - frame.position;
+            if (delta < (0-_syncMaxTimeDiff)) {
+                NSLog(@"视频比音频快了好多,我们还是渲染上一帧");
+                frame = NULL;
+                break;
+            }
+            [_videoFrames removeObjectAtIndex:0];
+            if (delta > _syncMaxTimeDiff) {
+                NSLog(@"视频比音频慢了好多,我们需要继续从queue拿到合适的帧 _audioPosition is %.3f frame.position %.3f", _audioPosition, frame.position);
+                frame = NULL;
+                continue;
+
+            } else {
+                break;
+            }
+        }
+    }
+    if (frame) {
+        _currentVideoFrame = frame;
+    }
+    return frame;
+}
+
+- (void) audioCallbackFillData: (SInt16 *) outData
+                     numFrames: (UInt32) numFrames
+                   numChannels: (UInt32) numChannels
+{
+    while (numFrames > 0) {
+        @synchronized (_audioFrames) {
+            NSUInteger count = _audioFrames.count;
+            if (count > 0) {
+                AudioFrame *frame = _audioFrames[0];
+                _bufferedDuration -= frame.duration;
+                [_audioFrames removeObjectAtIndex:0];
+                _audioPosition = frame.position;
+                
+                _currentAudioFramePos = 0;
+                _currentAudioFrame = frame.samples;
+            }
+        }
+        if (_currentAudioFrame) {
+            const void *bytes = (Byte *)_currentAudioFrame.bytes + _currentAudioFramePos;
+            const NSUInteger bytesLeft = (_currentAudioFrame.length - _currentAudioFramePos);
+            const NSUInteger frameSizeOf = numChannels * sizeof(SInt16);
+            const NSUInteger bytesToCopy = MIN(numFrames * frameSizeOf, bytesLeft);
+            const NSUInteger framesToCopy = bytesToCopy / frameSizeOf;
+            
+            memcpy(outData, bytes, bytesToCopy);
+            numFrames -= framesToCopy;
+            outData += framesToCopy * numChannels;
+            
+            if (bytesToCopy < bytesLeft)
+                _currentAudioFramePos += bytesToCopy;
+            else
+                _currentAudioFrame = nil;
+            
+        } else {
+            memset(outData, 0, numFrames * numChannels * sizeof(SInt16));
+            break;
+        }
+    }
+}
+
 - (OpenState) openFile: (NSString *) path
             parameters:(NSDictionary*) parameters error: (NSError **)error
 {
@@ -86,6 +163,7 @@ static void* decodeFirstBufferRunLoop(void* ptr)
     _videoFrames        = [NSMutableArray array];
     [self startDecoderThread];
     [self startDecodeFirstBufferThread];
+    _syncMaxTimeDiff = LOCAL_AV_SYNC_MAX_TIME_DIFF;
     return OPEN_SUCCESS;
 }
 
