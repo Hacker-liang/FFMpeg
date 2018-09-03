@@ -9,6 +9,20 @@
 #import "PSVideoDecoder.h"
 #import <Accelerate/Accelerate.h>
 
+
+@implementation Frame
+
+@end
+
+@implementation AudioFrame
+
+@end
+
+@implementation VideoFrame
+
+@end
+
+
 @interface PSVideoDecoder() {
     AVFrame*                    _videoFrame;
     AVFrame*                    _audioFrame;
@@ -30,6 +44,8 @@
 }
 
 @end
+
+
 
 @implementation PSVideoDecoder
 
@@ -467,7 +483,8 @@ static NSArray *collectStreams(AVFormatContext *formatCtx, enum AVMediaType code
 
 - (void)closeFile
 {
-    
+
 }
+
 
 @end
