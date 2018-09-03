@@ -45,8 +45,6 @@
 
 @end
 
-
-
 @implementation PSVideoDecoder
 
 static NSData* copyFrameData(UInt8 *src, int linesize, int width, int height)
@@ -107,8 +105,6 @@ static NSArray *collectStreams(AVFormatContext *formatCtx, enum AVMediaType code
     }
     return [retArray copy];
 }
-
-
 
 - (BOOL)openFile:(NSString *)filePath withParams:(NSDictionary *)params error:(NSError * _Nullable __autoreleasing *)error
 {
@@ -456,6 +452,11 @@ static NSArray *collectStreams(AVFormatContext *formatCtx, enum AVMediaType code
     }
     _swsContext = sws_getCachedContext(_swsContext, _videoCodecCtx->width, _videoCodecCtx->height, _videoCodecCtx->pix_fmt, _videoCodecCtx->width, _videoCodecCtx->height, PIX_FMT_YUV420P, SWS_FAST_BILINEAR, NULL, NULL, NULL);
     return _swsContext != NULL;
+}
+
+- (void) interrupt
+{
+    
 }
 
 - (void)closeScaler

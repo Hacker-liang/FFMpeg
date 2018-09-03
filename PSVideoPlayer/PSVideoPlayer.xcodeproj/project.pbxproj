@@ -21,6 +21,7 @@
 		D95A286E213CE1390088DB95 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A286D213CE1390088DB95 /* CoreGraphics.framework */; };
 		D95A2870213CE1400088DB95 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A286F213CE1400088DB95 /* CoreVideo.framework */; };
 		D95A2872213CE1730088DB95 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A2871213CE1730088DB95 /* Accelerate.framework */; };
+		D95A2876213D1FB80088DB95 /* PSVideoStreamProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D95A2875213D1FB80088DB95 /* PSVideoStreamProvider.m */; };
 		D9ADDDB8213A8BEB00AC386D /* PSVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9ADDDB7213A8BEB00AC386D /* PSVideoDecoder.m */; };
 		D9ADDDBB213A96BF00AC386D /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADDDBA213A96BF00AC386D /* libiconv.2.4.0.tbd */; };
 /* End PBXBuildFile section */
@@ -140,6 +141,8 @@
 		D95A286D213CE1390088DB95 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D95A286F213CE1400088DB95 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D95A2871213CE1730088DB95 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D95A2874213D1FB80088DB95 /* PSVideoStreamProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVideoStreamProvider.h; sourceTree = "<group>"; };
+		D95A2875213D1FB80088DB95 /* PSVideoStreamProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVideoStreamProvider.m; sourceTree = "<group>"; };
 		D9ADDDB6213A8BEB00AC386D /* PSVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVideoDecoder.h; sourceTree = "<group>"; };
 		D9ADDDB7213A8BEB00AC386D /* PSVideoDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVideoDecoder.m; sourceTree = "<group>"; };
 		D9ADDDBA213A96BF00AC386D /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
@@ -394,6 +397,8 @@
 			children = (
 				D9ADDDB6213A8BEB00AC386D /* PSVideoDecoder.h */,
 				D9ADDDB7213A8BEB00AC386D /* PSVideoDecoder.m */,
+				D95A2874213D1FB80088DB95 /* PSVideoStreamProvider.h */,
+				D95A2875213D1FB80088DB95 /* PSVideoStreamProvider.m */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				D916387A2137D595001C566C /* ViewController.m in Sources */,
 				D91638852137D597001C566C /* main.m in Sources */,
 				D91639012137D6BE001C566C /* CommonUtil.m in Sources */,
+				D95A2876213D1FB80088DB95 /* PSVideoStreamProvider.m in Sources */,
 				D91638772137D595001C566C /* AppDelegate.m in Sources */,
 				D9ADDDB8213A8BEB00AC386D /* PSVideoDecoder.m in Sources */,
 			);

@@ -70,6 +70,8 @@ typedef enum : NSUInteger {
 
 - (NSArray *) decodeFrames: (CGFloat) minDuration decodeVideoErrorState:(int *)decodeVideoErrorState;
 
+- (void) interrupt;
+
 
 @end
 
