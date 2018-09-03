@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "VideoDecoder.h"
+#import "PSVideoDecoder.h"
 #import "BaseEffectFilter.h"
 
 @interface VideoOutput : UIView

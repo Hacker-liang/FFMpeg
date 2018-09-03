@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseEffectFilter.h"
-#import "VideoDecoder.h"
+#import "PSVideoDecoder.h"
 
 @interface YUVFrameCopier : BaseEffectFilter
 
