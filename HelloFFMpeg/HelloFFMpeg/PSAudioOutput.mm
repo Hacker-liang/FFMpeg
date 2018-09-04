@@ -1,12 +1,12 @@
 //
-//  PSRecoderManager.m
+//  PSAudioOutput.m
 //  HelloFFMpeg
 //
 //  Created by 梁鹏帅 on 2018/8/28.
 //  Copyright © 2018 梁鹏帅. All rights reserved.
 //
 
-#import "PSRecoderManager.h"
+#import "PSAudioOutput.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ELAudioSession.h"
 
@@ -20,7 +20,7 @@ static OSStatus InputRenderCallback(void *inRefCon,
                                     AudioBufferList *ioData
                                     );
 
-@interface PSRecoderManager () {
+@interface PSAudioOutput () {
     SInt16*                      _outData;
 }
 
@@ -35,7 +35,7 @@ static OSStatus InputRenderCallback(void *inRefCon,
 const float SMAudioIOBufferDurationSmall = 0.0058f;
 
 
-@implementation PSRecoderManager
+@implementation PSAudioOutput
 
 - (id) initWithChannels:(NSInteger) channels sampleRate:(NSInteger) sampleRate bytesPerSample:(NSInteger) bytePerSample
 {
@@ -241,7 +241,7 @@ static OSStatus InputRenderCallback(void *inRefCon,
                                      UInt32 inBusNumber,
                                      UInt32 inNumberFrames,
                                      AudioBufferList *ioData) {
-    PSRecoderManager *manager = (__bridge id)inRefCon;
+    PSAudioOutput *manager = (__bridge id)inRefCon;
     return [manager renderData:ioData
                        atTimeStamp:inTimeStamp
                         forElement:inBusNumber

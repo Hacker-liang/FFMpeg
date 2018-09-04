@@ -7,12 +7,12 @@
 //
 
 #import "PSAudioPlayer.h"
-#import "PSRecoderManager.h"
+#import "PSAudioOutput.h"
 #import "accompany_decoder_controller.h"
 
 @interface PSAudioPlayer () <FillDataDelegate>
 
-@property (nonatomic, strong) PSRecoderManager *recorderManager;
+@property (nonatomic, strong) PSAudioOutput *recorderManager;
 @property (nonatomic) AccompanyDecoderController *decoderController;
 
 @end
@@ -28,7 +28,7 @@
         NSInteger channels = _decoderController->getChannels();
         NSInteger sampleRate = _decoderController->getAudioSampleRate();
         NSInteger bytesPersample = 2;
-        _recorderManager = [[PSRecoderManager alloc] initWithChannels:channels sampleRate:sampleRate bytesPerSample:bytesPersample];
+        _recorderManager = [[PSAudioOutput alloc] initWithChannels:channels sampleRate:sampleRate bytesPerSample:bytesPersample];
         _recorderManager.delegate = self;
     }
     return self;

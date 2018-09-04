@@ -29,7 +29,7 @@
 		D95038F12135419C00C449C4 /* HelloFFMpegUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95038F02135419C00C449C4 /* HelloFFMpegUITests.swift */; };
 		D9503959213548FD00C449C4 /* ps_decoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9503957213548FD00C449C4 /* ps_decoder.cpp */; };
 		D95039AE21354AD500C449C4 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D95039AD21354AD500C449C4 /* libffmpeg.a */; };
-		D9BFCF7D21356CE800FDC898 /* PSRecoderManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9BFCF7C21356CE800FDC898 /* PSRecoderManager.mm */; };
+		D9BFCF7D21356CE800FDC898 /* PSAudioOutput.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9BFCF7C21356CE800FDC898 /* PSAudioOutput.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,8 +162,8 @@
 		D95039AA21354AD500C449C4 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		D95039AB21354AD500C449C4 /* swresample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swresample.h; sourceTree = "<group>"; };
 		D95039AD21354AD500C449C4 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
-		D9BFCF7B21356CE800FDC898 /* PSRecoderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSRecoderManager.h; sourceTree = "<group>"; };
-		D9BFCF7C21356CE800FDC898 /* PSRecoderManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PSRecoderManager.mm; sourceTree = "<group>"; };
+		D9BFCF7B21356CE800FDC898 /* PSAudioOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAudioOutput.h; sourceTree = "<group>"; };
+		D9BFCF7C21356CE800FDC898 /* PSAudioOutput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PSAudioOutput.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,8 +282,8 @@
 				D95038D22135419A00C449C4 /* ViewController.swift */,
 				D9503957213548FD00C449C4 /* ps_decoder.cpp */,
 				D9503958213548FD00C449C4 /* ps_decoder.hpp */,
-				D9BFCF7B21356CE800FDC898 /* PSRecoderManager.h */,
-				D9BFCF7C21356CE800FDC898 /* PSRecoderManager.mm */,
+				D9BFCF7B21356CE800FDC898 /* PSAudioOutput.h */,
+				D9BFCF7C21356CE800FDC898 /* PSAudioOutput.mm */,
 				D916385221367B89001C566C /* PSAudioPlayer.h */,
 				D916385321367B89001C566C /* PSAudioPlayer.mm */,
 				D95038D42135419A00C449C4 /* Main.storyboard */,
@@ -600,7 +600,7 @@
 				D95038D12135419A00C449C4 /* AppDelegate.swift in Sources */,
 				D9503959213548FD00C449C4 /* ps_decoder.cpp in Sources */,
 				D91638682136AE3A001C566C /* ELAudioSession.m in Sources */,
-				D9BFCF7D21356CE800FDC898 /* PSRecoderManager.mm in Sources */,
+				D9BFCF7D21356CE800FDC898 /* PSAudioOutput.mm in Sources */,
 				D916385F213698B3001C566C /* accompany_decoder.cpp in Sources */,
 				D916385E213698B3001C566C /* packet_pool.cpp in Sources */,
 				D91638672136AE3A001C566C /* AVAudioSession+RouteUtils.m in Sources */,

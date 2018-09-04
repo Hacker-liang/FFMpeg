@@ -1,5 +1,5 @@
 //
-//  PSRecoderManager.h
+//  PSAudioOutput.h
 //  HelloFFMpeg
 //
 //  Created by 梁鹏帅 on 2018/8/28.
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface PSRecoderManager : NSObject
+@interface PSAudioOutput : NSObject
 
 @property(nonatomic, assign) Float64 sampleRate;
 @property(nonatomic, assign) Float64 channels;

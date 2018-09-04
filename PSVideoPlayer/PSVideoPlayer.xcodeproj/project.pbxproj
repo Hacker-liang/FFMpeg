@@ -27,6 +27,11 @@
 		D95A2887213D3E020088DB95 /* BaseEffectFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D95A287F213D3E020088DB95 /* BaseEffectFilter.m */; };
 		D95A2888213D3E020088DB95 /* ContrastEnhancerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D95A2881213D3E020088DB95 /* ContrastEnhancerFilter.m */; };
 		D95A2889213D3E020088DB95 /* VideoOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D95A2883213D3E020088DB95 /* VideoOutput.m */; };
+		D95A288C213D60A90088DB95 /* PSVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95A288B213D60A90088DB95 /* PSVideoPlayerController.m */; };
+		D95A2890213D64020088DB95 /* PSAudioOutput.mm in Sources */ = {isa = PBXBuildFile; fileRef = D95A288F213D64020088DB95 /* PSAudioOutput.mm */; };
+		D95A2892213D64800088DB95 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A2891213D64800088DB95 /* AVFoundation.framework */; };
+		D95A2894213D64BC0088DB95 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A2893213D64BB0088DB95 /* VideoToolbox.framework */; };
+		D95A2896213D65B10088DB95 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95A2895213D65B10088DB95 /* AudioToolbox.framework */; };
 		D9ADDDB8213A8BEB00AC386D /* PSVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9ADDDB7213A8BEB00AC386D /* PSVideoDecoder.m */; };
 		D9ADDDBB213A96BF00AC386D /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ADDDBA213A96BF00AC386D /* libiconv.2.4.0.tbd */; };
 /* End PBXBuildFile section */
@@ -158,6 +163,13 @@
 		D95A2882213D3E020088DB95 /* ContrastEnhancerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContrastEnhancerFilter.h; sourceTree = "<group>"; };
 		D95A2883213D3E020088DB95 /* VideoOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoOutput.m; sourceTree = "<group>"; };
 		D95A2884213D3E020088DB95 /* VideoOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOutput.h; sourceTree = "<group>"; };
+		D95A288A213D60A90088DB95 /* PSVideoPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVideoPlayerController.h; sourceTree = "<group>"; };
+		D95A288B213D60A90088DB95 /* PSVideoPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVideoPlayerController.m; sourceTree = "<group>"; };
+		D95A288E213D64020088DB95 /* PSAudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAudioOutput.h; sourceTree = "<group>"; };
+		D95A288F213D64020088DB95 /* PSAudioOutput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PSAudioOutput.mm; sourceTree = "<group>"; };
+		D95A2891213D64800088DB95 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D95A2893213D64BB0088DB95 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		D95A2895213D65B10088DB95 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D9ADDDB6213A8BEB00AC386D /* PSVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVideoDecoder.h; sourceTree = "<group>"; };
 		D9ADDDB7213A8BEB00AC386D /* PSVideoDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVideoDecoder.m; sourceTree = "<group>"; };
 		D9ADDDBA213A96BF00AC386D /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
@@ -168,6 +180,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95A2896213D65B10088DB95 /* AudioToolbox.framework in Frameworks */,
+				D95A2894213D64BC0088DB95 /* VideoToolbox.framework in Frameworks */,
+				D95A2892213D64800088DB95 /* AVFoundation.framework in Frameworks */,
 				D95A2872213CE1730088DB95 /* Accelerate.framework in Frameworks */,
 				D95A2870213CE1400088DB95 /* CoreVideo.framework in Frameworks */,
 				D95A286E213CE1390088DB95 /* CoreGraphics.framework in Frameworks */,
@@ -217,6 +232,7 @@
 		D91638742137D595001C566C /* PSVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				D95A288D213D64020088DB95 /* audio_output */,
 				D95A2877213D3E020088DB95 /* video_output */,
 				D9ADDDB5213A8BC300AC386D /* Player */,
 				D91638FE2137D6BE001C566C /* utils */,
@@ -226,6 +242,8 @@
 				D91638762137D595001C566C /* AppDelegate.m */,
 				D91638782137D595001C566C /* ViewController.h */,
 				D91638792137D595001C566C /* ViewController.m */,
+				D95A288A213D60A90088DB95 /* PSVideoPlayerController.h */,
+				D95A288B213D60A90088DB95 /* PSVideoPlayerController.m */,
 				D916387B2137D595001C566C /* Main.storyboard */,
 				D916387E2137D597001C566C /* Assets.xcassets */,
 				D91638802137D597001C566C /* LaunchScreen.storyboard */,
@@ -449,6 +467,15 @@
 			path = filter;
 			sourceTree = "<group>";
 		};
+		D95A288D213D64020088DB95 /* audio_output */ = {
+			isa = PBXGroup;
+			children = (
+				D95A288E213D64020088DB95 /* PSAudioOutput.h */,
+				D95A288F213D64020088DB95 /* PSAudioOutput.mm */,
+			);
+			path = audio_output;
+			sourceTree = "<group>";
+		};
 		D9ADDDB5213A8BC300AC386D /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +490,9 @@
 		D9ADDDB9213A96BF00AC386D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D95A2895213D65B10088DB95 /* AudioToolbox.framework */,
+				D95A2893213D64BB0088DB95 /* VideoToolbox.framework */,
+				D95A2891213D64800088DB95 /* AVFoundation.framework */,
 				D95A2871213CE1730088DB95 /* Accelerate.framework */,
 				D95A286F213CE1400088DB95 /* CoreVideo.framework */,
 				D95A286D213CE1390088DB95 /* CoreGraphics.framework */,
@@ -609,6 +639,8 @@
 				D95A2885213D3E020088DB95 /* DirectPassRenderer.m in Sources */,
 				D95A2886213D3E020088DB95 /* YUVFrameCopier.m in Sources */,
 				D95A2876213D1FB80088DB95 /* PSVideoStreamProvider.m in Sources */,
+				D95A2890213D64020088DB95 /* PSAudioOutput.mm in Sources */,
+				D95A288C213D60A90088DB95 /* PSVideoPlayerController.m in Sources */,
 				D95A2889213D3E020088DB95 /* VideoOutput.m in Sources */,
 				D95A2888213D3E020088DB95 /* ContrastEnhancerFilter.m in Sources */,
 				D91638772137D595001C566C /* AppDelegate.m in Sources */,
